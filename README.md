@@ -1,121 +1,134 @@
-Prompt : You work in the field of of mangas. Your company is involved in the domain of mangs. It is a company such as shonen jump. You have collected data about authors, the current mangas published, your sales data... Take inspiration from the following website: https://japanresell.fr/collections/weekly-shonen-jump.
-Your company wants to apply MERISE to design an information system. You are responsible for the analysis part, i.e., gathering the company's requirements. It has called on a computer engineering student to carry out this project, and you must provide him with the necessary information so that he can then apply the following steps of database design and development himself.
+Prompt : You work in the field of the Manga industry. Your company is involved in the domain of publishing selection, where you must analyse the data of the currently published mangas (Themes/Genres, Author, Sells, International publication, Amount of chapters, Starting date) to decide what to do with them. It is a compagny such as Weekly Shonen Jump. The mangas that are currently being published are ONE PIECE, SAKAMOTO DAYS, Akane-banashi, Blue Box, Kill Blue, The Elusive Samurai, Kagurabachi, Ichi the Witch, Marriagetoxin, Undead Unluck, Himaten, Shinobi Undercover, Syd Craft no Saishu Suiri. Take inspiration from the following websites: https://shonenjumpplus.com/, https://www.viz.com/shonenjump, https://en.wikipedia.org/wiki/Weekly_Sh%C5%8Dnen_Jump, https://www.animenewsnetwork.com/, https://www.crunchyroll.com/news/manga. 
+Your company wants to apply MERISE to design an information system. You are responsible for the analysis part, i.e., gathering the company's requirements. It has called on a computer engineering student to carry out this project, and you must provide him with the necessary information so that he can then apply the following steps of database design and development himself. 
 First, establish the data business rules for your company in the form of a bulleted list. It must correspond to the information provided by someone who knows how the company works, but not how an information system is built.
 Next, based on these rules, provide a raw data dictionary with the following columns, grouped in a table: meaning of the data, type, size in number of characters or digits. There should be between 25 and 35 data items. It is used to provide additional information about each data item (size and type) but without any assumptions about how the data will be modeled later.
 Provide the business rules and the data dictionary.
 
 Answer :
 
-# 1️⃣ Business Rules (Data Business Rules)
+Below is the **analysis deliverable** your company would hand to an engineering student.
+It contains:
 
-### General Company Activity
-
-* The company publishes weekly manga magazines similar to Weekly Shonen Jump.
-* Each magazine issue has a unique issue number and a publication date.
-* A magazine issue contains several manga chapters.
-* A manga series can be serialized in multiple issues over time.
-* A manga series may be ongoing, on hiatus, or completed.
-* A manga series belongs to one primary demographic category (e.g., shonen, seinen, shojo).
-* A manga series may belong to multiple genres (e.g., action, fantasy, romance).
-* Each manga series has one main author.
-* A manga series may also have additional contributors (illustrator, scriptwriter, assistant).
-* An author can work on multiple manga series over time.
-* Each manga chapter belongs to exactly one manga series.
-* Each chapter is published in exactly one magazine issue.
-* A chapter has a title, number, and number of pages.
-* Manga volumes (tankōbon) are published separately from magazine issues.
-* A volume contains several chapters from the same manga series.
-* A chapter can only appear in one volume.
-* A volume has an ISBN and a release date.
-* Each manga series generates sales revenue through magazine sales and volume sales.
-
-### Authors & Contributors
-
-* Each author has a unique internal identifier.
-* An author has a real name and may use a pen name.
-* An author has a nationality.
-* An author has a contract start date with the company.
-* An author may have a contract end date.
-* Authors receive royalties based on sales performance.
-* Royalty percentages are defined per manga series contract.
-
-### Sales & Distribution
-
-* Each magazine issue has a print run quantity.
-* Each magazine issue has total sales volume.
-* Each volume has its own print run quantity.
-* Each volume has total sales volume.
-* Sales are tracked by country.
-* The company distributes to multiple countries.
-* Each country has its own distribution partner.
-* Retail price may vary depending on country.
-* Unsold copies are tracked for each issue and volume.
-* The company calculates monthly revenue.
-* Revenue is calculated based on sales and retail price.
-* Rankings are established based on reader surveys per issue.
-* Each chapter can receive a popularity score in reader surveys.
-
-### Editorial Management
-
-* Each manga series has an assigned editor.
-* An editor can manage multiple manga series.
-* Editors are company employees.
-* Editors have a hiring date.
-* Editorial meetings decide whether a series continues or is cancelled.
-* A cancellation decision is recorded with a date and reason.
+1. **Business rules** (expressed as someone who understands the company’s business but not information-systems modeling).
+2. A **raw data dictionary** (25–35 items) with meaning, type, and size.
+   Entities are included for the manga titles.
 
 ---
 
-# 2️⃣ Raw Data Dictionary
+# **Business Rules (Company-Level Requirements)**
 
-The following table lists **raw data items**, independent from any future modeling structure.
+* The company manages a catalog of manga series currently serialized in its magazine. These include:
+  ONE PIECE,
+  SAKAMOTO DAYS,
+  Akane-banashi,
+  Blue Box,
+  Kill Blue,
+  The Elusive Samurai,
+  Kagurabachi,
+  Ichi the Witch,
+  Marriagetoxin,
+  Undead Unluck,
+  Himaten,
+  Shinobi Undercover,
+  Syd Craft no Saishu Suiri.
 
-| Meaning of the Data           | Type         | Size                  |
-| ----------------------------- | ------------ | --------------------- |
-| Magazine issue number         | Integer      | 5 digits              |
-| Magazine publication date     | Date         | 10 characters         |
-| Magazine print run quantity   | Integer      | 7 digits              |
-| Magazine total sales quantity | Integer      | 7 digits              |
-| Manga series title            | Alphanumeric | 150 characters        |
-| Manga series status           | Alphanumeric | 20 characters         |
-| Manga series start date       | Date         | 10 characters         |
-| Manga series end date         | Date         | 10 characters         |
-| Manga demographic category    | Alphanumeric | 30 characters         |
-| Manga genre label             | Alphanumeric | 30 characters         |
-| Chapter number                | Integer      | 4 digits              |
-| Chapter title                 | Alphanumeric | 150 characters        |
-| Chapter page count            | Integer      | 3 digits              |
-| Chapter popularity score      | Decimal      | 5 digits (2 decimals) |
-| Volume number                 | Integer      | 3 digits              |
-| Volume ISBN                   | Alphanumeric | 17 characters         |
-| Volume release date           | Date         | 10 characters         |
-| Volume print run quantity     | Integer      | 7 digits              |
-| Volume total sales quantity   | Integer      | 7 digits              |
-| Author internal ID            | Integer      | 6 digits              |
-| Author real name              | Alphanumeric | 100 characters        |
-| Author pen name               | Alphanumeric | 100 characters        |
-| Author nationality            | Alphanumeric | 50 characters         |
-| Author contract start date    | Date         | 10 characters         |
-| Author contract end date      | Date         | 10 characters         |
-| Royalty percentage            | Decimal      | 5 digits (2 decimals) |
-| Editor internal ID            | Integer      | 6 digits              |
-| Editor name                   | Alphanumeric | 100 characters        |
-| Editor hiring date            | Date         | 10 characters         |
-| Country name                  | Alphanumeric | 80 characters         |
-| Distribution partner name     | Alphanumeric | 120 characters        |
-| Retail price                  | Decimal      | 6 digits (2 decimals) |
-| Cancellation decision date    | Date         | 10 characters         |
-| Cancellation reason           | Alphanumeric | 255 characters        |
+* Each manga has one or more **authors** (writer, artist, or duo).
 
-**Total data items: 34**
+* Each manga has a defined set of **genres** and **themes** used to monitor trends and reader interests.
+
+* The company tracks **publication status** (ongoing, on hiatus, near cancellation, newly launched).
+
+* For each manga, the company stores the **serialization start date**.
+
+* The company tracks the **number of chapters published**, updated weekly.
+
+* The company evaluates **sales data** regularly, including:
+
+  * Volume sales (physical + digital)
+  * Magazine readership metrics
+  * Growth/decline trends over time
+
+* The company tracks whether a series has **international publication**, and in which countries or languages.
+
+* The company tracks **reader feedback**, including satisfaction score, demographic reach, and audience retention.
+
+* Each manga is associated with a **publication schedule** (weekly, irregular, seasonal).
+
+* The company tracks **adaptations** (anime, movie, novel).
+
+* The company evaluates **cancellation risk** based on sales, ratings, and audience retention.
+
+* Editorial staff assign **editor(s) in charge** per manga.
+
+* Each chapter has its **publication date** and **chapter number**.
+
+* The company tracks **marketing initiatives** (special campaigns, covers, promotions) linked to each manga.
+
+* The company monitors **merchandising potential** and existing products.
+
+* The company regularly evaluates and compares **performance rankings** among all active series.
+
+* The company tracks **contractual information**, such as rights management for reproduction and international sales.
+
+* Authors may work on **multiple manga**, and each manga can involve multiple contributors.
+
+* The company stores **historical sales data** and must keep past records even after a manga ends.
+
+* The company requires precise **identification** of every manga, author, country of publication, editor, and chapter.
+
+* All data must remain traceable over time and accessible for strategic decisions.
 
 ---
 
-This document provides:
+# **Raw Data Dictionary (25–35 Items)**
 
-* Clear business-level rules (for MCD creation in MERISE)
-* A raw data dictionary (for building the conceptual schema)
-* No premature modeling decisions (no primary keys, no cardinalities, no relations yet)
+*(No assumptions about modeling—only definitions, types, and sizes.)*
+
+| Data Meaning                   | Type         | Size                  |
+| ------------------------------ | ------------ | --------------------- |
+| Manga ID                       | Integer      | 10 digits             |
+| Manga Title                    | Alphanumeric | 150 chars             |
+| Author ID                      | Integer      | 10 digits             |
+| Author Name                    | Alphabetic   | 100 chars             |
+| Author Role (writer/artist)    | Alphabetic   | 30 chars              |
+| Genre                          | Alphabetic   | 50 chars              |
+| Theme                          | Alphabetic   | 50 chars              |
+| Serialization Start Date       | Date         | YYYY-MM-DD            |
+| Publication Status             | Alphabetic   | 20 chars              |
+| Number of Chapters             | Integer      | 5 digits              |
+| Chapter ID                     | Integer      | 10 digits             |
+| Chapter Number                 | Integer      | 5 digits              |
+| Chapter Publication Date       | Date         | YYYY-MM-DD            |
+| Sales Volume (per volume)      | Integer      | 10 digits             |
+| Digital Sales                  | Integer      | 10 digits             |
+| Physical Sales                 | Integer      | 10 digits             |
+| Total Sales                    | Integer      | 10 digits             |
+| Readership Score               | Decimal      | 5 digits (2 decimals) |
+| Audience Retention Rate        | Decimal      | 5 digits (2 decimals) |
+| Satisfaction Rating            | Decimal      | 4 digits (1 decimal)  |
+| International Publication Flag | Boolean      | 1 char                |
+| International Market           | Alphabetic   | 100 chars             |
+| Language                       | Alphabetic   | 50 chars              |
+| Adaptation Type                | Alphabetic   | 50 chars              |
+| Editor ID                      | Integer      | 10 digits             |
+| Editor Name                    | Alphabetic   | 100 chars             |
+| Marketing Campaign ID          | Integer      | 10 digits             |
+| Campaign Description           | Alphanumeric | 200 chars             |
+| Merchandising Category         | Alphabetic   | 50 chars              |
+| Rights Contract ID             | Integer      | 10 digits             |
+| Contract Details               | Alphanumeric | 300 chars             |
+| Performance Rank               | Integer      | 3 digits              |
+| Publication Schedule           | Alphabetic   | 20 chars              |
+| Risk Evaluation Score          | Decimal      | 4 digits (1 decimal)  |
+
+---
+
+If you want, I can also produce:
+
+✅ The **conceptual model (MCD)** in MERISE
+✅ The **logical model (MLD)** based on these rules
+✅ The **physical schema** for SQL
+Just tell me!
 
 ---
 
