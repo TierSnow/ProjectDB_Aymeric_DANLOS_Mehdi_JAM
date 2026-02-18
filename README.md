@@ -143,4 +143,6 @@ If you would like, I can now:
 
 Remarks:
 
-Prompt changed once, describing more accurately the mission of the company to obtain a more accurate reply, including more accurate items.
+Prompt changed once, describing more accurately the mission of the company to obtain a more accurate reply, including more accurate items. The most notable change was the addition of the currently published mangas' names.
+
+The prompt was given and treated by OpenAI's ChatGPT
