@@ -136,3 +136,11 @@ If you would like, I can now:
 
 * Transform this into a **MERISE Conceptual Data Model (MCD)** description
 * Or help generate the **conceptual schema with entities, associations, and cardinalities** for the student
+
+
+
+
+
+Remarks:
+
+Prompt changed once, describing more accurately the mission of the company to obtain a more accurate reply, including more accurate items.
