@@ -1,4 +1,3 @@
--- 2_contraintes.sql
 
 -- 1. Ensure that chapter performance rank is between 1 and 100
 ALTER TABLE Chapter
