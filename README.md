@@ -151,7 +151,10 @@ The prompt was given and treated by OpenAI's ChatGPT. Certain unnecessary keys w
 
 <img width="1430" height="730" alt="image" src="https://github.com/user-attachments/assets/ed99a299-f285-418b-ba6c-8c6ae1413fae" />
 
-LDM : 
+
+
+
+Logical model diagram (LMD):
 CREATE TABLE Author(
    author_id BYTE,
    author_role VARCHAR(50),
@@ -220,8 +223,5 @@ CREATE TABLE Crossover(
    FOREIGN KEY(manga_id_participants) REFERENCES Manga(manga_id),
    FOREIGN KEY(manga_id_crossover_amount) REFERENCES Manga(manga_id)
 );
-
-
-Logical model diagram (LMD):
 
 
