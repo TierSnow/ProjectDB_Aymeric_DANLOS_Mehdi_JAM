@@ -152,6 +152,15 @@ The prompt was given and treated by OpenAI's ChatGPT. Certain unnecessary keys w
 <img width="1430" height="730" alt="image" src="https://github.com/user-attachments/assets/ed99a299-f285-418b-ba6c-8c6ae1413fae" />
 
 
+Physical data model : 
+Author = (author_id BYTE, author_role VARCHAR(50), author_name VARCHAR(50));
+Manga = (manga_id INT, manga_title VARCHAR(50), manga_genre VARCHAR(50), manga_serial_start_date DATE, manga_publication_schedule VARCHAR(20), manga_publi_status VARCHAR(50), manga_sales INT);
+Chapter = (chapter_id INT, chapter_pub_date VARCHAR(50), chapter_manga VARCHAR(50), chapter_performance_rank DECIMAL(3,0), #manga_id);
+Editor = (editor_id DECIMAL(10,0), editor_name VARCHAR(50), editor_rights_contract_ID DECIMAL(10,0), editor_contract_details VARCHAR(300));
+Campaign = (Campaign_ID DECIMAL(10,0), Campaign_description VARCHAR(200), Campaign_merchandising_category VARCHAR(50), #manga_id);
+Writes = (#author_id, #manga_id);
+Publishes = (#manga_id, #editor_id);
+Crossover = (#manga_id_participants, #manga_id_crossover_amount);
 
 
 Logical model diagram (LMD):
