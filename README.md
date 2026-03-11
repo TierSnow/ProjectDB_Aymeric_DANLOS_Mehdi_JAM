@@ -145,4 +145,9 @@ Remarks:
 
 Prompt changed once, describing more accurately the mission of the company to obtain a more accurate reply, including more accurate items. The most notable change was the addition of the currently published mangas' names.
 
-The prompt was given and treated by OpenAI's ChatGPT
+The prompt was given and treated by OpenAI's ChatGPT. Certain unnecessary keys were taken off for a more fluid representation.
+
+
+Logical model diagram (LMD):
+
+
