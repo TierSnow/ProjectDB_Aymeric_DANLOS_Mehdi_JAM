@@ -153,6 +153,7 @@ The prompt was given and treated by OpenAI's ChatGPT. Certain unnecessary keys w
 
 
 Physical data model : 
+
 Author = (author_id BYTE, author_role VARCHAR(50), author_name VARCHAR(50));
 Manga = (manga_id INT, manga_title VARCHAR(50), manga_genre VARCHAR(50), manga_serial_start_date DATE, manga_publication_schedule VARCHAR(20), manga_publi_status VARCHAR(50), manga_sales INT);
 Chapter = (chapter_id INT, chapter_pub_date VARCHAR(50), chapter_manga VARCHAR(50), chapter_performance_rank DECIMAL(3,0), #manga_id);
