@@ -1,0 +1,114 @@
+Provide the insertion queries used to populate the database, whose relational model is as follows:
+CREATE TABLE Author(
+   author_id BYTE,
+   author_role VARCHAR(50),
+   author_name VARCHAR(50),
+   PRIMARY KEY(author_id)
+);
+
+CREATE TABLE Manga(
+   manga_id INT,
+   manga_title VARCHAR(50),
+   manga_genre VARCHAR(50),
+   manga_serial_start_date DATE,
+   manga_publication_schedule VARCHAR(20),
+   manga_publi_status VARCHAR(50),
+   manga_sales INT,
+   PRIMARY KEY(manga_id)
+);
+
+CREATE TABLE Chapter(
+   chapter_id INT,
+   chapter_pub_date VARCHAR(50),
+   chapter_manga VARCHAR(50),
+   chapter_performance_rank DECIMAL(3,0),
+   manga_id INT NOT NULL,
+   PRIMARY KEY(chapter_id),
+   FOREIGN KEY(manga_id) REFERENCES Manga(manga_id)
+);
+
+CREATE TABLE Editor(
+   editor_id DECIMAL(10,0),
+   editor_name VARCHAR(50),
+   editor_rights_contract_ID DECIMAL(10,0),
+   editor_contract_details VARCHAR(300),
+   PRIMARY KEY(editor_id)
+);
+
+CREATE TABLE Campaign(
+   Campaign_ID DECIMAL(10,0),
+   Campaign_description VARCHAR(200),
+   Campaign_merchandising_category VARCHAR(50),
+   manga_id INT NOT NULL,
+   PRIMARY KEY(Campaign_ID),
+   FOREIGN KEY(manga_id) REFERENCES Manga(manga_id)
+);
+
+CREATE TABLE Writes(
+   author_id BYTE,
+   manga_id INT,
+   PRIMARY KEY(author_id, manga_id),
+   FOREIGN KEY(author_id) REFERENCES Author(author_id),
+   FOREIGN KEY(manga_id) REFERENCES Manga(manga_id)
+);
+
+CREATE TABLE Publishes(
+   manga_id INT,
+   editor_id DECIMAL(10,0),
+   PRIMARY KEY(manga_id, editor_id),
+   FOREIGN KEY(manga_id) REFERENCES Manga(manga_id),
+   FOREIGN KEY(editor_id) REFERENCES Editor(editor_id)
+);
+
+CREATE TABLE Crossover(
+   manga_id_participants INT,
+   manga_id_crossover_amount INT,
+   PRIMARY KEY(manga_id_participants, manga_id_crossover_amount),
+   FOREIGN KEY(manga_id_participants) REFERENCES Manga(manga_id),
+   FOREIGN KEY(manga_id_crossover_amount) REFERENCES Manga(manga_id)
+);
+
+Primary keys correspond to IDs, unless otherwise specified (when it is a composite attribute). Foreign keys are identified by # and have the same name as the primary keys to which they refer.
+There must be: 15 rows for the Author and Editor tables, 25 rows for the Manga table, 10 rows for the Campaign table, and at least 100 rows for the Chapter table.
+There are five horses, with the following characteristics:
+title: The Dawn of Adventure, publication_date: “2026-01-10”, manga: ONE PIECE, performance_rank: 87 
+title: Shadows in the Alley, publication_date: “2026-01-17”, manga: Sakamoto Days, performance_rank: 91 
+title: The Magic Duel, publication_date: “2026-01-12”, manga: Akane-banashi, performance_rank: 78 
+title: Goals and Dreams, publication_date: “2026-01-15”, manga: Blue Box, performance_rank: 84 
+title: The Elusive Plan, publication_date: “2026-01-20”, manga: The Elusive Samurai, performance_rank: 89 
+Foreign keys must refer to existing primary keys: provide the lines starting with filling in the tables in which there are no foreign keys, then the tables in which the foreign keys refer to primary keys in tables that have already been filled in. 
+
+The data must comply with the following validation constraints:
+
+
+-- 1. Ensure that chapter performance rank is between 1 and 100
+ALTER TABLE Chapter
+ADD CONSTRAINT chk_chapter_performance_rank
+CHECK (chapter_performance_rank >= 1 AND chapter_performance_rank <= 100);
+
+-- 2. Ensure manga sales are non-negative
+ALTER TABLE Manga
+ADD CONSTRAINT chk_manga_sales_non_negative
+CHECK (manga_sales >= 0);
+
+-- 3. Ensure manga publication schedule is only one of allowed values
+ALTER TABLE Manga
+ADD CONSTRAINT chk_manga_publication_schedule
+CHECK (manga_publication_schedule IN ('weekly', 'irregular', 'seasonal'));
+
+-- 4. Ensure manga publication status is valid
+ALTER TABLE Manga
+ADD CONSTRAINT chk_manga_publi_status
+CHECK (manga_publi_status IN ('ongoing', 'on hiatus', 'near cancellation', 'newly launched'));
+
+-- 5. Ensure author role is valid
+ALTER TABLE Author
+ADD CONSTRAINT chk_author_role
+CHECK (author_role IN ('writer', 'artist', 'duo'));
+
+-- 6. Ensure that Crossover participants are distinct
+ALTER TABLE Crossover
+ADD CONSTRAINT chk_crossover_distinct
+CHECK (manga_id_participants <> manga_id_crossover_amount);
+
+Provide the set in the form of an SQL script ready to be executed.
