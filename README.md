@@ -148,6 +148,11 @@ Prompt changed once, describing more accurately the mission of the company to ob
 The prompt was given and treated by OpenAI's ChatGPT. Certain unnecessary keys were taken off for a more fluid representation.
 
 
+
+<img width="1430" height="730" alt="image" src="https://github.com/user-attachments/assets/ed99a299-f285-418b-ba6c-8c6ae1413fae" />
+
+
+
 Logical model diagram (LMD):
 
 
