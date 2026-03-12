@@ -234,4 +234,4 @@ CREATE TABLE Crossover(
    FOREIGN KEY(manga_id_crossover_amount) REFERENCES Manga(manga_id)
 );
 
-
+Usage scenario : we are an operative at a fictional manga publishing company. We want to create the front page of our magazine, along with ordering mangas inside of it, and creating advertising material according to sales, crossovers, ratings, etc.
