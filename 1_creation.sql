@@ -19,7 +19,6 @@ CREATE TABLE Manga(
 CREATE TABLE Chapter(
    chapter_id INT,
    chapter_pub_date VARCHAR(50),
-   chapter_manga VARCHAR(50),
    chapter_performance_rank DECIMAL(3,0),
    manga_id INT NOT NULL,
    PRIMARY KEY(chapter_id),
@@ -29,8 +28,6 @@ CREATE TABLE Chapter(
 CREATE TABLE Editor(
    editor_id DECIMAL(10,0),
    editor_name VARCHAR(50),
-   editor_rights_contract_ID DECIMAL(10,0),
-   editor_contract_details VARCHAR(300),
    PRIMARY KEY(editor_id)
 );
 
