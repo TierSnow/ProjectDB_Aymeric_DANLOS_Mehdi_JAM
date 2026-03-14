@@ -68,11 +68,11 @@ CREATE TABLE Crossover(
 Primary keys correspond to IDs, unless otherwise specified (when it is a composite attribute). Foreign keys are identified by # and have the same name as the primary keys to which they refer.
 There must be: 15 rows for the Author and Editor tables, 25 rows for the Manga table, 10 rows for the Campaign table, and at least 40 rows for the Chapter table.
 There are five chapters as exemple, with the following characteristics:
-title: The Dawn of Adventure, publication_date: “2026-01-10”, manga: ONE PIECE, performance_rank: 87 
-title: Shadows in the Alley, publication_date: “2026-01-17”, manga: Sakamoto Days, performance_rank: 91 
-title: The Magic Duel, publication_date: “2026-01-12”, manga: Akane-banashi, performance_rank: 78 
-title: Goals and Dreams, publication_date: “2026-01-15”, manga: Blue Box, performance_rank: 84 
-title: The Elusive Plan, publication_date: “2026-01-20”, manga: The Elusive Samurai, performance_rank: 89 
+title: The Dawn of Adventure, publication_date: “2026-01-10”, performance_rank: 87 
+title: Shadows in the Alley, publication_date: “2026-01-17”, performance_rank: 91 
+title: The Magic Duel, publication_date: “2026-01-12”, performance_rank: 78 
+title: Goals and Dreams, publication_date: “2026-01-15”, performance_rank: 84 
+title: The Elusive Plan, publication_date: “2026-01-20”, performance_rank: 89 
 Foreign keys must refer to existing primary keys: provide the lines starting with filling in the tables in which there are no foreign keys, then the tables in which the foreign keys refer to primary keys in tables that have already been filled in. 
 
 The data must comply with the following validation constraints:
