@@ -1,5 +1,5 @@
 CREATE TABLE Author(
-   author_id BYTE,
+   author_id INT,
    author_role VARCHAR(50),
    author_name VARCHAR(50),
    PRIMARY KEY(author_id)
@@ -41,7 +41,7 @@ CREATE TABLE Campaign(
 );
 
 CREATE TABLE Writes(
-   author_id BYTE,
+   author_id INT,
    manga_id INT,
    PRIMARY KEY(author_id, manga_id),
    FOREIGN KEY(author_id) REFERENCES Author(author_id),
